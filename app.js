@@ -22,9 +22,9 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/api/auth', authRoutes);
-app.use('/api/user', authenticate, userRoutes);
-app.use('/api/nft', authenticate, nftRoutes);
+app.use('/auth', authRoutes);
+app.use('/user', authenticate, userRoutes);
+app.use('/nft', authenticate, nftRoutes);
 
 app.use(errorMiddleware);
 

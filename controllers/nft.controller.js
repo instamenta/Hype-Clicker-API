@@ -127,7 +127,7 @@ const deleteNft = async (req, res, next) => {
 const likeNft = async (req, res, next) => {
     try {
         const nftId = req.params.nftId;
-        const userId = req.user.id; // assuming you're using some kind of authentication middleware to get the user ID
+        const userId = req.user.id;
 
         const nft = await Nft.findById(nftId);
 

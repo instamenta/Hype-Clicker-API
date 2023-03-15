@@ -34,7 +34,7 @@ const guestGuard = (req, res, next) => {
     next()
   }
 }
-const NotOwnerGuard = async (req, res, next) => {
+const notOwnerGuard = async (req, res, next) => {
   try {
     const nft = await NFT.findById(req.params.nftId);
 
@@ -70,4 +70,4 @@ const ownerGuard = async (req, res, next) => {
 };
 
 
-module.exports = { authMiddleware, guestGuard, NotOwnerGuard , ownerGuard}
+module.exports = { authMiddleware, guestGuard, notOwnerGuard , ownerGuard}

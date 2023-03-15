@@ -1,6 +1,6 @@
-const { body, validationResult } = require('express-validator');
-// const User = require('../models/user.model');
-const NFT = require('../models/nft.model');
+const { body, validationResult } = require('express-validator')
+// const User = require('../models/user.model')
+const NFT = require('../models/nft.model')
 
 // Validate user input
 const validateUserInput = () => {
@@ -12,9 +12,8 @@ const validateUserInput = () => {
       .withMessage('Password must be at least 8 characters long')
       .matches(/\d/)
       .withMessage('Password must contain at least one number'),
-  ];
-};
-
+  ]
+}
 // Validate nft input
 const validateNFTInput = () => {
   return [

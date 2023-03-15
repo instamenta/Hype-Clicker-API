@@ -2,7 +2,11 @@
 
 Welcome to the documentation for the Hype Clicker API! This API is a backend REST CRUD API built using Node.js, Express, MongoDB, and Firebase. It provides endpoints for user authentication, NFT management, and more.
 
-Authentication Setup
+## Introduction
+
+The Hype Clicker API is a backend REST CRUD API built using Node.js, Express, and MongoDB for cloud hosting on Firebase. The API allows for the creation and management of users and NFTs, with user authentication using JWT, Passport, and Bcrypt. The project features a modular architecture with controllers, middlewares, models, routes, services, and utils directories. Additionally, the app is containerized using Docker and Docker Compose. This project is suitable for developers who want to build a scalable and secure backend API for their web or mobile application.
+
+## Authentication Setup
 1. Begin by cloning the repository onto your local machine by running the command **`git clone https://github.com/instamenta/Hype-Clicker-API.git`** in your terminal.
 
 2. Navigate to the project directory using **`cd Hype-Clicker-API`**.
@@ -28,7 +32,7 @@ Replace the values of `FIREBASE_PROJECT_ID`, `FIREBASE_PRIVATE_KEY`, `FIREBASE_C
 
 8. Once the containers are running, navigate to http://localhost:5000 in your web browser to confirm that the app is running.
 
-Using the API
+## Using the API
 1. The API consists of three main routes for user authentication, NFT-related actions, and user-related actions.
 
 2. To authenticate a user, send a POST request to /api/auth/login with an email and password in the request body. The server will respond with a JWT token if the credentials are correct.
@@ -181,20 +185,43 @@ To use our authentication system, you can follow these steps:
 
 That's it! With these steps, you can start using our authentication system in your app.
 
-## Dependencies
-The API relies on several dependencies, including:
+## Requirements
+* Node.js
+* Express
+* Express-Router
+* Express-Validator
+* Express-Session
+* Morgan
+* CORS
+* Passport
+* MongoDB
+* Mongoose
+* Firebase
+* Docker
+* Docker Compose
+* Bcrypt
 
-* bcrypt
-* cors
-* express
-* express-session
-* express-validator
-* jsonwebtoken
-* mongoose
-* morgan
-* mongodb-store
-* passport
-* passport-local
+## Dependencies
+
+* bcrypt: ^5.1.0
+* connect-mongodb-session: ^3.1.1
+* cors: ^2.8.5
+* dotenv: ^16.0.3
+* express: ^4.18.2
+* express-router: ^0.0.1
+* express-session: ^1.17.3
+* express-validator: ^6.15.0
+* firebase-admin: ^11.5.0
+* jsonwebtoken: ^9.0.0
+* mongodb: ^5.1.0
+* mongoose: ^7.0.1
+* morgan: ^1.10.0
+* node: ^19.6.1
+* nodemon: ^2.0.21
+* passport: ^0.6.0
+* passport-jwt: ^4.0.1
+* passport-local: ^1.0.0
+
 
 ## Contributing
 If you would like to contribute to the project, please follow these steps:

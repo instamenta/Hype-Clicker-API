@@ -1,6 +1,6 @@
 # Hype-Clicker-API
 
-Welcome to the documentation for the Hype Clicker API! This API is a backend REST CRUD API built using Node.js, Express, MongoDB, and Firebase. It provides endpoints for user authentication, NFT management, and more.
+Welcome to the documentation for the Hype Clicker API! This API is a backend REST CRUD API built using Node.js, Express, MongoDB, and Render. It provides endpoints for user authentication, NFT management, and more.
 
 ## Introduction
 

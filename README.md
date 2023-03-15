@@ -230,3 +230,6 @@ If you would like to contribute to the project, please follow these steps:
 2. Create a new branch for your feature or bugfix.
 3. Implement your changes and make sure the tests pass.
 4. Submit a pull request.
+
+## To conclude
+The Hype Clicker API is suitable for developers who want to build their own web or mobile application backend API. If you have any questions or feedback, please feel free to reach out through my GitHub repository. Thank you for using the Hype Clicker API!

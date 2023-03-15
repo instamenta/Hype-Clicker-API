@@ -16,26 +16,26 @@ router.put('/:nftId', nftController.editNft);
 
 // DELETE nft
 router.delete('/:nftId', nftController.deleteNft);
-
-// POST like nft
+    
+// POST LIKE nft
 router.post('/:nftId/like', nftController.likeNft);
 
 // DELETE like from nft
 router.delete('/:nftId/like', nftController.unlikeNft);
 
-// POST own nft
+// POST OWN nft
 router.post('/:nftId/own', nftController.ownNft);
 
 // DELETE ownership of nft
 router.delete('/:nftId/own', nftController.unownNft);
 
-// POST comment on nft
+// POST COMMENT on nft
 router.post('/:nftId/comment', nftController.addComment);
 
-// PUT edit comment on nft
+// PUT edit COMMENT on nft
 router.put('/:nftId/comment/:commentId', nftController.editComment);
 
-// DELETE comment from nft
+// DELETE COMMENT from nft
 router.delete('/:nftId/comment/:commentId', nftController.deleteComment);
 
 module.exports = router;

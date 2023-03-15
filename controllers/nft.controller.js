@@ -2,15 +2,16 @@ const Nft = require('../models/nft.model');
 
 const createNft = async (req, res, next) => {
     try {
-        const { name, description, imageUrl, tags } = req.body;
-        const userId = req.user.id;
+        const { name, description, price } = req.body;
+        const ownerId = req.user.id;
+        const ownerEmail = req.user.email;
 
         const nft = new Nft({
             name,
             description,
-            imageUrl,
-            tags,
-            createdBy: userId
+            price,
+            ownerId,
+            ownerEmail,
         });
 
         await nft.save();

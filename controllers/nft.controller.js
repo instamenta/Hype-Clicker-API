@@ -175,27 +175,27 @@ const unlikeNft = async (req, res, next) => {
 
 const ownNft = async (req, res, next) => {
     try {
-      const nftId = req.params.nftId;
-      const userId = req.user.id; // assuming you're using some kind of authentication middleware to get the user ID
-  
-      const nft = await Nft.findById(nftId);
-  
-      if (!nft) {
-        return res.status(404).json({ message: 'NFT not found' });
-      }
-  
-      if (nft.owner) {
-        return res.status(400).json({ message: 'NFT already owned by another user' });
-      }
-  
-      nft.owner = userId;
-      await nft.save();
-  
-      res.json(nft);
+        const nftId = req.params.nftId;
+        const userId = req.user.id; // assuming you're using some kind of authentication middleware to get the user ID
+
+        const nft = await Nft.findById(nftId);
+
+        if (!nft) {
+            return res.status(404).json({ message: 'NFT not found' });
+        }
+
+        if (nft.owner) {
+            return res.status(400).json({ message: 'NFT already owned by another user' });
+        }
+
+        nft.owner = userId;
+        await nft.save();
+
+        res.json(nft);
     } catch (error) {
-      next(error);
+        next(error);
     }
-  };
+};
 
 const unownNft = async (req, res, next) => {
     try {
@@ -320,6 +320,6 @@ module.exports = {
     ownNft,
     unownNft,
     addComment,
-editComment,
-deleteComment
+    editComment,
+    deleteComment
 };

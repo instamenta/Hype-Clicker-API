@@ -3,7 +3,7 @@ const MongoDBStore = require('connect-mongodb-session')(session)
 const MONGODB_URL = process.env.MONGODB_URL || 'mongodb://localhost:27017/myapp'
 
 const store = new MongoDBStore({
-  uri: MONGODB_URL,
+  url: MONGODB_URL,
   collection: 'sessions'
 });
 

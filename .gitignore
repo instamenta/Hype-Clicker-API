@@ -1,14 +1,16 @@
 # Dependency directories
 node_modules
-node_modules/
-/node_modules
-./node_modules/
 
 # Environment files
 config/*.env
 .env
-# Log files
+
+# Logs
 logs/
+*.log
+
+# Build output
+build/
 
 # Docker and Docker Compose files
 docker-compose.yml
@@ -20,6 +22,19 @@ Dockerfile
 *.iml
 *.log
 
+# Dependency lock files
+package-lock.json
+yarn.lock
+
+# IDE files
+.vscode/
+.idea/
+
 # Miscellaneous files
 .DS_Store
 Thumbs.db
+
+# Ignore other common temporary files
+*.swp
+*.swo
+*.tmp

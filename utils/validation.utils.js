@@ -1,13 +1,13 @@
-const { body, validationResult } = require('express-validator')
+const { check, validationResult } = require('express-validator')
 // const User = require('../models/user.model')
 const NFT = require('../models/nft.model')
 
 // Validate User input
 const validateUserInput = () => {
   return [
-    body('username').trim().notEmpty().withMessage('Username is required'),
-    body('email').trim().isEmail().withMessage('Email is not valid'),
-    body('password')
+    check('username').trim().notEmpty().withMessage('Username is required'),
+    check('email').trim().isEmail().withMessage('Email is not valid'),
+    check('password')
       .isLength({ min: 8 })
       .withMessage('Password must be at least 8 characters long')
       .matches(/\d/)
@@ -17,9 +17,9 @@ const validateUserInput = () => {
 // Validate NFT input
 const validateNFTInput = () => {
   return [
-    body('name').trim().notEmpty().withMessage('Name is required'),
-    body('description').trim().notEmpty().withMessage('Description is required'),
-    body('price')
+    check('name').trim().notEmpty().withMessage('Name is required'),
+    check('description').trim().notEmpty().withMessage('Description is required'),
+    check('price')
       .isNumeric({ no_symbols: true })
       .withMessage('Price must be a number')
       .isFloat({ min: 0 })

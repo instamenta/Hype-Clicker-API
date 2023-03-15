@@ -53,6 +53,55 @@ Using the API
 
 12. To delete an existing user, send a DELETE request to /api/users/:id with the ID of the user in the URL.
 
+## Additional Notes
+The app uses Bcrypt to hash user passwords before storing them in the database.
+
+The `auth.middleware.js` middleware is used to protect routes that require authentication.
+
+The `error.middleware.js` middleware is used to handle errors and send appropriate responses to the client.
+
+The `jwt.utils.js`utility module contains functions for generating and verifying JWT tokens.
+
+The validation.utils.js utility module contains functions for validating input data before processing it.
+
+The Firebase SDK is used to connect to Firebase and use Firebase services, such as Firestore for storing data.
+
+### To run the app locally, you will need to follow these steps:
+
+1. Clone the repository from GitHub: git clone `https://github.com/instamenta/Hype-Clicker-API.git`
+
+2. Install Node.js and npm on your machine if you haven't already.
+
+3. Install the necessary dependencies by running `npm install` in the root directory of the project.
+
+4. Create a Firebase project and enable Firestore.
+
+5. Create a .env file in the root directory of the project and add the necessary environment variables as shown in the .env.example file.
+
+6. Start the app by running npm start in the root directory of the project.
+
+7. Use a tool like Postman to test the app's endpoints.
+
+### To deploy the app to Firebase, you will need to follow these steps:
+
+1. Create a Firebase project and enable Firestore.
+
+2. Add the necessary environment variables to your Firebase project as shown in the `.env.example` file.
+
+3. Install the Firebase CLI on your machine if you haven't already.
+
+4. Run `firebase login` to authenticate with your Firebase account.
+
+5. Run `firebase init` in the root directory of the project to initialize a Firebase project.
+
+6. Follow the prompts to select the Firebase project you created earlier and set up Firebase hosting.
+
+7. Run `firebase deploy` to deploy the app to Firebase hosting.
+
+8. Use a tool like Postman to test the app's endpoints.
+
+Note that you may need to modify the app's source code to suit your specific needs, such as changing the data models or adding new functionality. You should also review the app's security practices and ensure that they are suitable for your use case.
+
 ## Architecture
 The project follows the MVC (Model-View-Controller) architecture, where:
 

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const nftController = require('../controllers/nft.controller');
+const { validateNFTInput, validateNFT } = require('../utils/validation.utils');
 
 // GET all nfts or GET filtered nft list with pagination
 router.get('/', nftController.getNfts);
@@ -9,10 +10,10 @@ router.get('/', nftController.getNfts);
 router.get('/:nftId', nftController.getNft);
 
 // POST create nft
-router.post('/', nftController.createNft);
+router.post('/', validateNFTInput(), validateNFT, nftController.createNft);
 
 // PUT edit nft
-router.put('/:nftId', nftController.editNft);
+router.put('/:nftId', validateNFTInput(), validateNFT, nftController.editNft);
 
 // DELETE nft
 router.delete('/:nftId', nftController.deleteNft);

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const UserController = require('../controllers/user.controller');
 const { validateUserInput, validateUser } = require('../utils/validation.utils');
-
+const authMiddleware = require('../middlewares/auth.middleware');
 // Get all users with optional query filters and pagination
 router.get('/', UserController.getAllUsers);
 
@@ -10,15 +10,12 @@ router.get('/', UserController.getAllUsers);
 router.get('/:id', UserController.getOneUser);
 
 // Update a user's data
-router.put('/:id', validateUserInput(), validateUser, UserController.updateUser);
+router.patch('/:id',authMiddleware, UserController.editUserData);
 
 // Add or remove money from a user's account
-router.patch('/:id/money', UserController.modifyUserMoney);
+router.patch('/:id/money',authMiddleware, UserController.modifyUserMoney);
 
 // Change a user's profile picture
-router.patch('/:id/profile-picture', UserController.changeProfilePicture);
-
-// Delete a user
-router.delete('/:id', UserController.deleteUser);
+router.patch('/:id/profile-picture',authMiddleware, UserController.changeProfilePicture);
 
 module.exports = router;

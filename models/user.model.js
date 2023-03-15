@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const nftSchema = new mongoose.Schema(
+const userSchema = new mongoose.Schema(
   {
     username: {
       type: String,
@@ -31,9 +31,28 @@ const nftSchema = new mongoose.Schema(
     toObject: { virtuals: true },
   }
 );
+// Custom error message for duplicate values
+userSchema.post('save', function (error, doc, next) {
+  if (error.name === 'MongoError' && error.code === 11000) {
+    const field = Object.keys(error.keyValue)[0];
+    const message = `The ${field} is already taken, please choose another one`;
+    next(new Error(message));
+  } else {
+    next(error);
+  }
+});
+
+// Custom error message for validation errors
+userSchema.post('validate', function (error, doc, next) {
+  if (error) {
+    next(new Error('Invalid'));
+  } else {
+    next();
+  }
+});
 
 // Hash password before saving to database
-nftSchema.pre('save', async function (next) {
+userSchema.pre('save', async function (next) {
   try {
     if (!this.isModified('password')) {
       return next();
@@ -47,26 +66,6 @@ nftSchema.pre('save', async function (next) {
   }
 });
 
-// Custom error message for duplicate values
-nftSchema.post('save', function (error, doc, next) {
-  if (error.name === 'MongoError' && error.code === 11000) {
-    const field = Object.keys(error.keyValue)[0];
-    const message = `The ${field} is already taken, please choose another one`;
-    next(new Error(message));
-  } else {
-    next(error);
-  }
-});
+const User = mongoose.model('User', userSchema);
 
-// Custom error message for validation errors
-nftSchema.post('validate', function (error, doc, next) {
-  if (error) {
-    next(new Error('Invalid'));
-  } else {
-    next();
-  }
-});
-
-const NFT = mongoose.model('NFT', nftSchema);
-
-module.exports = NFT;
+module.exports = User;

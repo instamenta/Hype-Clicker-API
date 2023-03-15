@@ -1,6 +1,6 @@
 const { body, validationResult } = require('express-validator');
-const User = require('./user.model');
-const NFT = require('./nft.model');
+// const User = require('../models/user.model');
+const NFT = require('../models/nft.model');
 
 // Validate user input
 const validateUserInput = () => {

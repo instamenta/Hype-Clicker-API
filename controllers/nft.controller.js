@@ -222,7 +222,7 @@ const unownNft = async (req, res, next) => {
     }
 };
 // Comment Logic => 
-const commentNft = async (req, res, next) => {
+const addComment = async (req, res, next) => {
     try {
         const { nftId } = req.params;
         const { text } = req.body;
@@ -248,7 +248,7 @@ const commentNft = async (req, res, next) => {
     }
 };
 
-const editCommentNft = async (req, res, next) => {
+const editComment = async (req, res, next) => {
     try {
         const { nftId, commentId } = req.params;
         const { text } = req.body;
@@ -279,7 +279,7 @@ const editCommentNft = async (req, res, next) => {
     }
 };
 
-const deleteCommentNft = async (req, res, next) => {
+const deleteComment = async (req, res, next) => {
     try {
         const { nftId, commentId } = req.params;
         const userId = req.user.id;
@@ -318,4 +318,8 @@ module.exports = {
     likeNft,
     unlikeNft,
     ownNft,
+    unownNft,
+    addComment,
+editComment,
+deleteComment
 };

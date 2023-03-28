@@ -12,10 +12,6 @@ logs/
 # Build output
 build/
 
-# Docker and Docker Compose files
-docker-compose.yml
-Dockerfile
-
 # IDE and editor files
 .vscode/
 .idea/

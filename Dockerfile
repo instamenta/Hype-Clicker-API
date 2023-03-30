@@ -1,8 +1,8 @@
 # Use an official Node runtime as a parent image
-FROM node:12.22.1
+FROM node:latest
 
 # Create a new user to run the container
-RUN useradd --user-group --create-home --shell /bin/false appuser
+# RUN useradd --user-group --create-home --shell /bin/false appuser
 
 # Set the working directory to /app
 WORKDIR /app
@@ -17,7 +17,7 @@ RUN npm install
 COPY . .
 
 # Set the user to run the container
-USER appuser
+# USER appuser
 
 # Expose port 5000
 EXPOSE 5000
